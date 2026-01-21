@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { loader } from '@guolao/vue-monaco-editor'
+import * as monaco from 'monaco-editor'
 import router from './router'
 import i18n from './i18n'
 import './style.css'
@@ -28,6 +30,8 @@ self.MonacoEnvironment = {
     return new editorWorker()
   }
 }
+
+loader.config({ monaco })
 
 const pinia = createPinia()
 const app = createApp(App)
